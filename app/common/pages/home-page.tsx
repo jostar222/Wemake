@@ -1,6 +1,6 @@
 import { Button } from "~/common/components/ui/button";
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <main className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-8">Welcome to Our App</h1>
