@@ -11,7 +11,7 @@ export default defineConfig({
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
-  plugins: [reactRouter(), tsconfigPaths(), react()],
+  plugins: [reactRouter(), tsconfigPaths()],
   
   build: {
     cssMinify: true,
