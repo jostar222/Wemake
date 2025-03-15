@@ -34,12 +34,13 @@ export default function HomePage() {
         </div>
           {Array.from({length: 10}).map((_, index) => ( 
             <ProductCard
-            id={`productId-${index}`}
-            name="Product Name"
-            description="Product Description"
-            commentsCount={12}
-            viewsCount={12}
-            votesCount={120}
+              key={`productId-${index}`}
+              id={`productId-${index}`}
+              name="Product Name"
+              description="Product Description"
+              commentsCount={12}
+              viewsCount={12}
+              votesCount={120}
           />))}
       </div>
       <div className="grid grid-cols-3 gap-4">
