@@ -33,7 +33,7 @@ const menus = [
         to: "/products/submit",
       },
       {
-        name: "Promote a Product",
+        name: "Promote",
         description: "Promote a product to our community",
         to: "/products/promote",
       },
