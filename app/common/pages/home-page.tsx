@@ -17,13 +17,20 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function HomePage() {
+export const loader = () => { // loader의 return이 아래 loaderData라는 props로 전달(default export 함수로)
+  console.log("hello");
+  return {
+    hello: "world",
+  };
+};
+
+export default function HomePage({ loaderData }) {
   return ( 
     <div className="px-20 space-y-40">
       <div className="grid grid-cols-3 gap-4">
         <div>
           <h2 className="text-5xl font-bold leading-tight tracking-tight">
-            Today's Products
+            Today's Products {JSON.stringify(loaderData)}
           </h2>
           <p className="text-xl font-light text-foreground">
             The best products made by our community today.
