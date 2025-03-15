@@ -9,6 +9,7 @@ import { IdeaCard } from "~/features/ideas/components/idea-card";
 import { Badge } from "../components/ui/badge";
 import { JobCard } from "~/features/jobs/components/job-card";
 import { TeamCard } from "~/features/teams/components/team-card";
+import type { Route } from "./+types/home-page";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,10 +22,11 @@ export const loader = () => { // loader의 return이 아래 loaderData라는 pro
   console.log("hello");
   return {
     hello: "world",
+    hello2: 'lalala',
   };
 };
 
-export default function HomePage({ loaderData }) {
+export default function HomePage({ loaderData }: Route.ComponentProps) {
   return ( 
     <div className="px-20 space-y-40">
       <div className="grid grid-cols-3 gap-4">
