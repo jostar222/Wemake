@@ -1,4 +1,4 @@
-import type { Route } from "../../../+types/features/products/pages/category-page";
+import type { Route } from "./+types/category-page";
 import type { MetaFunction } from "@react-router/types";
 
 export function meta({ params }: Route.MetaArgs): MetaFunction {
