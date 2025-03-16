@@ -11,7 +11,7 @@ export default function ProductPagination({
   totalPages,
 }: ProductPaginationProps) {
     const [searchParams, setSearchParams] = useSearchParams();
-    const page = Number(searchParams.get("page")) ?? 1;
+    const page = Number(searchParams.get("page") ?? 1) ;
     const getUrlWithPage = (page: number) => { // onClick 이벤트를 사용 시 링크로서의 기능이 상실되어 별도 함수로 처리
       const params = new URLSearchParams(searchParams);
       params.set("page", String(page));
