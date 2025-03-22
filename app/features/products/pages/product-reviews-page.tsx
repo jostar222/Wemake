@@ -1,44 +1,32 @@
+import { Button } from "~/common/components/ui/button";
+import { ReviewCard } from "../components/review-card";
 
-interface ReviewData {
-  id: string;
-  content: string;
-  rating: number;
-  authorId: string;
-  createdAt: string;
+export function meta() {
+  return [
+    { title: "Product Reviews | wemake" },
+    { name: "description", content: "Read and write product reviews" },
+  ];
 }
 
-export function loader({ params }: Route.LoaderArgs) {
-  // Fetch reviews for the product using params.productId
-  return {
-    reviews: [] as ReviewData[]
-  };
-}
-
-export function Component({ loaderData }: Route.ComponentProps) {
-  const { reviews } = loaderData;
-
+export default function ProductReviewsPage() {
   return (
-    <div className="container py-8">
-      <h1 className="text-2xl font-bold mb-6">Product Reviews</h1>
-      <div className="space-y-4">
-        {reviews.map((review) => (
-          <div key={review.id} className="border p-4 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold">Rating: {review.rating}/5</span>
-              </div>
-              <time className="text-sm text-gray-500">{review.createdAt}</time>
-            </div>
-            <p className="mt-2">{review.content}</p>
-          </div>
+    <div className="space-y-10 max-w-xl">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold">10 Reviews </h2>
+        <Button variant={"secondary"}>Write a review</Button>
+      </div>
+      <div className="space-y-20">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <ReviewCard
+            username="John Doe"
+            handle="@username"
+            avatarUrl="https://github.com/facebook.png"
+            rating={5}
+            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+            postedAt="10 days ago"
+          />
         ))}
       </div>
     </div>
   );
 }
-
-export function meta(): Route.MetaFunction {
-  return [
-    { title: "Product Reviews" }
-  ];
-} 
