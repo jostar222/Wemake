@@ -1,6 +1,7 @@
 import {
   type RouteConfig,
   index,
+  layout,
   prefix,
   route,
 } from "@react-router/dev/routes";
@@ -38,10 +39,12 @@ export default [
     route("/promote", "features/products/pages/promote-page.tsx"),
     ...prefix("/:productId", [
       index("features/products/pages/product-redirect-page.tsx"),
-      route("/overview", "features/products/pages/product-overview-page.tsx"),
-      ...prefix("/reviews", [
-      index("features/products/pages/product-reviews-page.tsx"),
-      route("/new", "features/products/pages/new-product-review-page.tsx"),
+      layout("features/products/layouts/product-overview-layout.tsx", [
+        route("/overview", "features/products/pages/product-overview-page.tsx"),
+        ...prefix("/reviews", [
+        index("features/products/pages/product-reviews-page.tsx"),
+        route("/new", "features/products/pages/new-product-review-page.tsx"),
+        ]),
       ]),
     ]),
   ]),
