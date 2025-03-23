@@ -7,13 +7,13 @@ import { cn } from "~/lib/utils";
 interface IdeaCardProps {
   id: string;
   title: string;
-  viewCount: number;
+  viewsCount: number;
   postedAt: string;
   likesCount: number;
   claimed: boolean;
 }
 
-export function IdeaCard({ id, title, viewCount, postedAt, likesCount, claimed }: IdeaCardProps) {
+export function IdeaCard({ id, title, viewsCount, postedAt, likesCount, claimed }: IdeaCardProps) {
   return (
     <Card className="bg-transparent hover:bg-card/50 transition-colors">
       <CardHeader>
@@ -32,7 +32,7 @@ export function IdeaCard({ id, title, viewCount, postedAt, likesCount, claimed }
       <CardContent className="flex items-center">
         <div className="flex items-center gap-1">
           <EyeIcon className="w-4 h-4" />
-          <span>{viewCount}</span>
+          <span>{viewsCount}</span>
         </div>
         <DotIcon className="w-4 h-4" />
         <span>{postedAt}</span>
